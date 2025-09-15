@@ -1,5 +1,6 @@
 package tw.edu.pu.csim.s1135198.lotto
 
+import android.drm.DrmStore
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             LottoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                    Play(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -31,17 +32,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Play(name: String, modifier: Modifier = Modifier) {
+    var lucky = (1..100).random()
+
     Text(
-        text = "Hello $name!",
+        text = "樂透數字(1-100)為 $lucky",
         modifier = modifier
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LottoTheme {
-        Greeting("Android")
-    }
-}
